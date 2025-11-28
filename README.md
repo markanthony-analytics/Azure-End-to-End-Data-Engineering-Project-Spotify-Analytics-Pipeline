@@ -49,26 +49,7 @@ The solution mirrors how data engineering pipelines are built in real-world clou
 | **Orchestration** | (Optional) Azure Data Factory | Scheduling & monitoring               |
 | **Consumption**   | Power BI / Databricks SQL     | Data insights, dashboards             |
 
-## 📂 Repository Structure
-spotify_azure_project/
-│
-├── data/
-│   ├── raw/             # Initial uploaded data (CSV/JSON)
-│   ├── refined/         # Cleaned + structured Delta tables
-│   └── curated/         # Analysis-ready datasets
-│
-├── notebooks/
-│   ├── 01_ingestion_raw.ipynb
-│   ├── 02_transformation_refined.ipynb
-│   └── 03_curated_tables.ipynb
-│
-├── src/
-│   ├── utils/           # Reusable helper functions (schema, IO)
-│   ├── pipeline_raw.py
-│   ├── pipeline_refined.py
-│   └── pipeline_curated.py
-│
-└── README.md
+
 
 
 ## 🔧 Key Features
@@ -80,15 +61,7 @@ spotify_azure_project/
 | ⚡ Delta optimization                          | Z-ORDER, Caching, Auto-Optimize                   |
 | 📉 Power BI report layer                      | ranking charts, popularity trends, tempo analysis |
 
-## 🧪 Sample Transformation (PySpark)
-from pyspark.sql.functions import col, lower, to_date
 
-df_cleaned = (
-    df_raw
-    .withColumn("track_name", lower(col("track_name")))
-    .withColumn("release_date", to_date(col("release_date"), "yyyy-MM-dd"))
-    .filter(col("popularity") > 40)
-)
 
 ## 📊 Sample Insights Generated
 | Metric                   | Result               |
